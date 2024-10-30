@@ -1,13 +1,15 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "About me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the repository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this template](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads!
+I am a Ph.D. candidate in Operations Management (OM) and Information Systems (IS) at the University of Cologne, and a Visiting Ph.D. Scholar at IE University Business School. My doctoral research is fully funded by a scholarship from the Institute of Energy Economics at the University of Cologne (EWI).
+
+I hold a Master’s degree in Industrial Engineering and a Bachelor’s degree in Mechanical Engineering from the Ferdowsi University of Mashhad. Prior to embarking on my academic career I gained extensive teaching and research experience as a research assistant at the Ferdowsi University of Mashhad. 
 
 A data-driven personal website
 ======
