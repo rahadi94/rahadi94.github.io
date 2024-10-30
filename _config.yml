@@ -22,13 +22,13 @@ repository               : "rahadi94/rahadi94.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "Ramin Ahadi"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  bio              : "PhD Sudent at University of Cologne| Machine Learning & Optimization"
+  location         : "Cologne, Germany"
+  employer         : "Universtiy of Cologne"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "ramin.ahadi1994@gmail.com" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
