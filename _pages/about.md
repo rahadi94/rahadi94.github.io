@@ -13,10 +13,12 @@ I hold a Master’s degree in Industrial Engineering and a Bachelor’s degree i
 
 Rearch Interest
 ======
-My research interests lie in the application of data-driven methods to (1) understanding and (2) resolving societal challenges. I especially focus on issues in sustainable energy and transport. I draw on causal inference, (spatial) machine learning, mathematical programming and reinforcement learning to achieve two general research objectives:
+My research focuses on applying data-driven and machine learning methods to understand socio-technical systems and enhance efficiency through advanced decision-making models. My primary interest is in sustainable energy and mobility domains. To achieve this, I leverage agent-based modeling, machine learning, mathematical programming, and reinforcement learning to pursue two broad research objectives:
 
-* Infer and quantify causal effects of new technologies and policies on human behavior, society and the environment to derive actionable policy and managerial insights.
-Develop mathematical decision algorithms for planning and operating digital energy and mobility systems against environmental, cost, service level, and other objectives.
+* Design and develop mathematical decision-making algorithms for planning and managing digital energy and mobility systems, balancing objectives such as environmental impact, cost, service levels, and other key factors.
+* Understand and predict the impact of user behaviors towards the adoption of new technologies (e.g., autonomous vehicles).
+
+[My work](https://rahadi94.github.io/publications/) has been presented at leading OM, IS, and computer science conferences and is published in highly ranked journals. Examples include the development of [cooperative routing and scheduling the charging management of shared autonomous electric vehciles](https://pubsonline.informs.org/doi/full/10.1287/trsc.2022.1187) through hierarchical multi-agent reinforcement learning models, [analyzing the impacts of user behavior in electric multi-modal vehicle sharing platforms](https://aisel.aisnet.org/ecis2022_rp/162/), and [managing large-scale electric vehicle charging hubs though AI-enabled pricing models](https://aisel.aisnet.org/ecis2024/track17_greenis/track17_greenis/38/), among other projects.
 
 Getting started
 ======
