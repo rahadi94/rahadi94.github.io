@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a Ph.D. candidate in Operations Management (OM) and Information Systems (IS) at the [University of Cologne](https://is3.uni-koeln.de/en/team/doctoral-researchers/ramin-ahadi), and a Visiting Ph.D. Scholar at [IE University Business School](https://www.ie.edu). My doctoral research is fully funded by a scholarship from the Institute of Energy Economics at the University of Cologne (EWI).
+I am a Ph.D. graduate in Operations Management (OM) and Information Systems (IS) at the [University of Cologne](https://is3.uni-koeln.de/en/team/doctoral-researchers/ramin-ahadi), and a Visiting Ph.D. Scholar at [IE University Business School](https://www.ie.edu). My doctoral research is fully funded by a scholarship from the Institute of Energy Economics at the University of Cologne (EWI).
 
 I hold a Master’s degree in Industrial Engineering and a Bachelor’s degree in Mechanical Engineering from the [Ferdowsi University of Mashhad](https://en.um.ac.ir/content/Faculty-of-Engineering). Prior to embarking on my academic career I gained extensive teaching and research experience as a research assistant at the Ferdowsi University of Mashhad. 
 
