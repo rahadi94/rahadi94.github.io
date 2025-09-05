@@ -1,3 +1,139 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
 
 {% include analytics.html %}
+
+<!-- Fuse.js for client-side search (free, CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+<script>
+(function() {
+  var searchInput = document.getElementById('site-search');
+  var resultsPanel = document.getElementById('site-search-results');
+  if (!searchInput || !resultsPanel) return;
+
+  var fuse = null;
+  var indexLoaded = false;
+  var pendingQuery = '';
+
+  function renderResults(items) {
+    if (!items || items.length === 0) {
+      resultsPanel.style.display = 'none';
+      resultsPanel.innerHTML = '';
+      return;
+    }
+    var html = items.slice(0, 10).map(function(res) {
+      var doc = res.item || res;
+      var title = doc.title || '(no title)';
+      var snippet = (doc.content || '').slice(0, 140);
+      return '<a href="' + doc.url + '" style="display:block; padding:10px 12px; border-bottom:1px solid #f0f0f0; text-decoration:none; color:#333;">'
+        + '<div style="font-weight:600; margin-bottom:4px;">' + title + '</div>'
+        + '<div style="font-size:12px; color:#666;">' + snippet + '...</div>'
+        + '</a>';
+    }).join('');
+    resultsPanel.innerHTML = html;
+    resultsPanel.style.display = 'block';
+  }
+
+  function doSearch(q) {
+    if (!q) {
+      renderResults([]);
+      return;
+    }
+    if (!indexLoaded) {
+      pendingQuery = q;
+      return;
+    }
+    var results = fuse.search(q);
+    renderResults(results);
+  }
+
+  // Lazy-load the index once the input is focused
+  var indexRequestStarted = false;
+  function ensureIndex() {
+    if (indexRequestStarted) return;
+    indexRequestStarted = true;
+    fetch('{{ "/search.json" | absolute_url }}')
+      .then(function(r) { return r.json(); })
+      .then(function(docs) {
+        fuse = new Fuse(docs, {
+          keys: [
+            { name: 'title', weight: 0.5 },
+            { name: 'content', weight: 0.5 }
+          ],
+          ignoreLocation: true,
+          threshold: 0.3,
+          minMatchCharLength: 2
+        });
+        indexLoaded = true;
+        if (pendingQuery) {
+          doSearch(pendingQuery);
+          pendingQuery = '';
+        }
+      })
+      .catch(function(err) {
+        console.error('Search index load failed', err);
+      });
+  }
+
+  searchInput.addEventListener('focus', ensureIndex);
+  searchInput.addEventListener('input', function(e) {
+    var q = e.target.value.trim();
+    if (!indexLoaded) ensureIndex();
+    doSearch(q);
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!resultsPanel.contains(e.target) && e.target !== searchInput) {
+      resultsPanel.style.display = 'none';
+    }
+  });
+})();
+</script>
+
+<!-- Copy-to-clipboard for code blocks (free, client-side) -->
+<script>
+(function() {
+  function addCopyButtons() {
+    var pres = document.querySelectorAll('pre > code');
+    pres.forEach(function(code) {
+      var pre = code.parentElement;
+      if (pre.parentElement && pre.parentElement.classList.contains('code-with-copy')) return;
+
+      var wrapper = document.createElement('div');
+      wrapper.className = 'code-with-copy';
+      wrapper.style.position = 'relative';
+      pre.parentElement.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = 'Copy';
+      btn.setAttribute('aria-label', 'Copy code to clipboard');
+      btn.style.position = 'absolute';
+      btn.style.top = '8px';
+      btn.style.right = '8px';
+      btn.style.padding = '4px 8px';
+      btn.style.fontSize = '12px';
+      btn.style.border = '1px solid #ddd';
+      btn.style.borderRadius = '4px';
+      btn.style.background = '#fff';
+      btn.style.cursor = 'pointer';
+      btn.style.opacity = '0.9';
+      btn.addEventListener('click', function() {
+        var text = code.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          var old = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(function() { btn.textContent = old; }, 1200);
+        });
+      });
+      wrapper.appendChild(btn);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addCopyButtons);
+  } else {
+    addCopyButtons();
+  }
+})();
+</script>
